@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(to bottom, #CDFFE0, white);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* Agrega la fuente que desees */
+  min-height: 100vh;
+  /* Asegura que el fondo se extienda por toda la altura de la ventana */
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
