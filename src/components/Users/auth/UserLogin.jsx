@@ -39,6 +39,16 @@ export function UserLogin() {
     progress: undefined,
   })
 
+  const errorServer = () => toast.error('Error al conectar al servidor.', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
+
   const handleVerifyCedula = () => {
     // Hacer la solicitud a la API para verificar la cédula
     fetch(`https://axion-49av.onrender.com/api/preusers/cedula/${cedula}`)
@@ -62,6 +72,7 @@ export function UserLogin() {
       .catch((error) => {
         // Manejar errores de la solicitud, por ejemplo, mostrar un mensaje de error.
         console.error("Error al verificar la cédula:", error);
+        errorServer();
       });
 
   };
@@ -103,6 +114,7 @@ export function UserLogin() {
       .catch((error) => {
         // Manejar errores de la solicitud, por ejemplo, mostrar un mensaje de error.
         console.error("Error al iniciar sesión:", error);
+        errorServer()
       });
   };
 
