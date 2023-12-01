@@ -27,7 +27,7 @@ export function UserRegistered() {
     // Define an async function to make the HTTP request
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/api/preusers/cedula/${cedula}`);
+        const response = await fetch(`http://54.175.110.141/api/preusers/cedula/${cedula}`);
         if (response.status === 200) {
           const data = await response.json();
           setId(data._id)
@@ -55,7 +55,7 @@ export function UserRegistered() {
 
   const fetchZones = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/zones');
+      const response = await fetch('http://54.175.110.141/api/zones');
       if (!response.ok) {
         throw new Error('No se pudo obtener la información de las zonas.');
       }
@@ -69,7 +69,7 @@ export function UserRegistered() {
 
   const fetchEducationLevels = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/education-levels');
+      const response = await fetch('http://54.175.110.141/api/education-levels');
       if (!response.ok) {
         throw new Error('No se pudo obtener la información de los niveles de educacion.');
       }
@@ -83,7 +83,7 @@ export function UserRegistered() {
 
   const fetchTypeEntrepreneurs = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/entrepreneurialtypes');
+      const response = await fetch('http://54.175.110.141/api/entrepreneurialtypes');
       if (!response.ok) {
         throw new Error('No se pudo obtener la información de los tipos de emprendedores.');
       }
@@ -97,7 +97,7 @@ export function UserRegistered() {
 
   const fetchGenders = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/genders');
+      const response = await fetch('http://54.175.110.141/api/genders');
       if (!response.ok) {
         throw new Error('No se pudo obtener la información de los generos.');
       }
@@ -111,7 +111,7 @@ export function UserRegistered() {
 
   const fetchLocations = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/locations');
+      const response = await fetch('http://54.175.110.141/api/locations');
       if (!response.ok) {
         throw new Error('No se pudo obtener la información de la ubicacion.');
       }
@@ -125,7 +125,7 @@ export function UserRegistered() {
 
   const fetchSalaryLevels = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/salary-levels');
+      const response = await fetch('http://54.175.110.141/api/salary-levels');
       if (!response.ok) {
         throw new Error('No se pudo obtener la información de los generos.');
       }
@@ -227,7 +227,7 @@ export function UserRegistered() {
 
   const handleRegistroSubmit = () => {
     if (ubicacion && zona && nivelEducativo && emprendedor && genero && nivelSalario) {
-      fetch('http://localhost:9000/api/register', {
+      fetch('http://54.175.110.141/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -238,7 +238,7 @@ export function UserRegistered() {
       .then(data => {
         console.log('Registro exitoso', data);
 
-        fetch(`http://localhost:9000/api/preusers/${id}`, {
+        fetch(`http://54.175.110.141/api/preusers/${id}`, {
           method: 'PUT',  // Utilizamos el método PUT para actualizar el estado.
           headers: {
             'Content-Type': 'application/json',

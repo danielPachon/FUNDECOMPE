@@ -14,7 +14,7 @@ export function Navbar() {
   useEffect(() => {
     // Define an async function to make the HTTP request
     const getUser = async () => {
-      fetch(`http://localhost:9000/api/users/${cedula}`)
+      fetch(`http://54.175.110.141/api/users/${cedula}`)
         .then((response) => {
           if (response.status === 200) {
             return response.json();
@@ -35,7 +35,7 @@ export function Navbar() {
     }
 
     const getPreuser = async () => {
-      fetch(`http://localhost:9000/api/preusers/cedula/${cedula}`)
+      fetch(`http://54.175.110.141/api/preusers/cedula/${cedula}`)
         .then((response) => {
           if (response.status === 200) {
             return response.json();
