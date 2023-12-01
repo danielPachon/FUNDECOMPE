@@ -41,7 +41,7 @@ export function UserLogin() {
 
   const handleVerifyCedula = () => {
     // Hacer la solicitud a la API para verificar la cédula
-    fetch(`http://http://axion.api.fundecompe.org//api/preusers/cedula/${cedula}`)
+    fetch(`http://axion-49av.onrender.com/api/preusers/cedula/${cedula}`)
       .then((response) => {
         if (response.status === 200) {
           response.json().then((data) => {
@@ -68,7 +68,7 @@ export function UserLogin() {
 
   const handleLogin = () => {
     // Hacer la solicitud de inicio de sesión
-    fetch("http://http://axion.api.fundecompe.org//api/login", {
+    fetch("http://axion-49av.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

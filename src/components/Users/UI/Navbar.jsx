@@ -14,7 +14,7 @@ export function Navbar() {
   useEffect(() => {
     // Define an async function to make the HTTP request
     const getUser = async () => {
-      fetch(`http://http://axion.api.fundecompe.org//api/users/${cedula}`)
+      fetch(`http://axion-49av.onrender.com/api/users/${cedula}`)
         .then((response) => {
           if (response.status === 200) {
             return response.json();
@@ -35,7 +35,7 @@ export function Navbar() {
     }
 
     const getPreuser = async () => {
-      fetch(`http://http://axion.api.fundecompe.org//api/preusers/cedula/${cedula}`)
+      fetch(`http://axion-49av.onrender.com/api/preusers/cedula/${cedula}`)
         .then((response) => {
           if (response.status === 200) {
             return response.json();
