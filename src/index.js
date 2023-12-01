@@ -3,9 +3,6 @@ const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const https = require("https");
-const fs = require("fs");   
-
 const userRoutes = require('./routes/user');
 const mentorRoutes = require('./routes/mentor');
 const preUserRoutes = require("./routes/preUser");
@@ -48,15 +45,8 @@ app.use("/api", genderRoutes);
 app.use("/api", salaryLevelRoutes);
 app.use("/api", categoryRoutes);
 
-const options = {
-  key: fs.readFileSync("server.key"),
-  cert: fs.readFileSync("server.cert"),
-};
-
-const server = https.createServer(options, app);
-
 const PORT = process.env.PORT || 9000;
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Servidor en funcionamiento en el puerto ${PORT}`);
 });
