@@ -30,6 +30,8 @@ app.use((req, res, next) => {
   const allowedOrigins = [
     "http://localhost:3000",
     "https://frontend.d3pjfjc0k1xqw4.amplifyapp.com",
+    "https://axion-dev.fundecompe.org",
+    "https://axion.fundecompe.org",
   ];
   const origin = req.headers.origin;
 
