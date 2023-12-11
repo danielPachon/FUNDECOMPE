@@ -77,10 +77,29 @@ const deleteMentor = async (req, res) => {
   }
 };
 
+const loginMentor = async (req, res) => {
+  const { cedula, password } = req.body;
+
+  try {
+    const mentor = await Mentor.findOne({ cedula });
+
+    if (!mentor || !bcrypt.compareSync(password, mentor.password)) {
+      return res.status(401).json({ error: "Credenciales inválidas" });
+    }
+
+    const token = jwt.sign({ mentorId: mentor._id }, "secretKey"); // Cambia 'secretKey' por una clave secreta segura
+    res.json({ token });
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    res.status(500).json({ error: "Error al iniciar sesión" });
+  }
+};
+
 module.exports = {
   getAllMentors,
   createMentor,
   getMentorById,
   updateMentor,
   deleteMentor,
+  loginMentor,
 };
