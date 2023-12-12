@@ -1,6 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 
 export function MonitorLogin() {
+  const [cedula, setCedula] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/mentors/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cedula, password }),
+      });
+
+      if (response.ok) {
+        const { token } = await response.json();
+        // Almacena el token en el estado o en localStorage para su uso posterior
+        console.log('Token:', token);
+      } else {
+        const error = await response.json();
+        console.error('Error de inicio de sesión:', error.error);
+      }
+    } catch (error) {
+      console.error('Error al realizar la solicitud de inicio de sesión:', error);
+    }
+  };
   return (
     <div className="flex justify-center w-full my-auto xl:gap-10 lg:justify-normal md:gap-3 draggable">
       <div className="flex items-center justify-center w-full lg:p-12">
@@ -25,7 +50,7 @@ export function MonitorLogin() {
                 <div className="flex flex-row justify-between mb-8">
                   <a href="/" className="mr-4 text-sm font-medium text-purple-blue-500">¿Olvidaste tu contraseña?</a>
                 </div>
-                <button className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-green-600 focus:ring-4 focus:ring-green-100 bg-green-500">Iniciar sesión</button>
+              <button onClick={handleLogin} className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-green-600 focus:ring-4 focus:ring-green-100 bg-green-500">Iniciar sesión</button>
               </div>
             <p className="text-sm leading-relaxed text-gray-900"> <a href="/" className="font-bold text-gray-700">Administración u Organización</a></p>
           </div>
