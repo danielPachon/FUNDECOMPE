@@ -13,10 +13,9 @@ router.get("/mentors/:id", mentorController.getMentorById);
 
 // Ruta para actualizar un mentor por su ID
 router.put("/mentors/:id", mentorController.updateMentor);
-
 // Ruta para eliminar un mentor por su ID
 router.delete("/mentors/:id", mentorController.deleteMentor);
 
-router.post("/login-mentor", mentorsController.loginMentor);
+router.post("/mentor/login", mentorController.loginMentor);
 
 module.exports = router;
