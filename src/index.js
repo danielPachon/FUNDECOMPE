@@ -26,13 +26,29 @@ mongoose
 
 app.use(bodyParser.json());
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
+app.use((req, res, next) => {
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "https://frontend.d3pjfjc0k1xqw4.amplifyapp.com",
+    "https://axion-dev.fundecompe.org",
+    "https://axion.fundecompe.org",
+  ];
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header(
+      "Access-Control-Allow-Methods",
+      "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+    );
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+  }
+
+  next();
+});
 
 app.use("/api", userRoutes);
 app.use("/api", mentorRoutes);
