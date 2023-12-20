@@ -22,12 +22,12 @@ export default function NavbarAdmin() {
         <div>
           <div className="-mx-6 px-6 py-4">
             <Link to={"/Admin"} title="home">
-              <img src={Fundecompe} className="w-44" alt="tailus logo" />
+              <img src='https://i.postimg.cc/mgc7X6Cw/Fundecompe.jpg' className="w-44" alt="tailus logo" />
             </Link>
           </div>
 
           <div className="mt-8 text-center">
-            <img src={image} alt="" className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" />
+            <img src='https://i.postimg.cc/mgc7X6Cw/Fundecompe.jpg' alt="" className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" />
             <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{name + ' ' + lastname}</h5>
             <span className="hidden text-gray-400 lg:block">1005134165</span>
           </div>

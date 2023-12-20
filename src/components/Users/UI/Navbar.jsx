@@ -76,7 +76,7 @@ export function Navbar() {
         <div>
           <div className="-mx-6 px-6 py-4">
             <Link to={"/User"} title="home">
-              <img src={Fundecompe} className="w-44" alt="tailus logo" />
+              <img src='https://i.postimg.cc/mgc7X6Cw/Fundecompe.jpg' className="w-44" alt="tailus logo" />
             </Link>
           </div>
 

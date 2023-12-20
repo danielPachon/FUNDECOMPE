@@ -9,7 +9,6 @@ export default function CreatePreregistro() {
   const nombresNuevo = useRef()
   const apellidosNuevo = useRef()
   const emailNuevo = useRef()
-  const estadoNuevo = useRef()
 
   const validarCampos = () => {
 
@@ -31,14 +30,6 @@ export default function CreatePreregistro() {
       objetoClienteNuevo.fechaNacimiento = emailNuevo.current.value
     } else {
       alert("Campo fecha nacimiento esta vacio")
-    }
-
-    if (estadoNuevo.current.checked == false) {
-      objetoClienteNuevo.estado = "a"
-    } else if (estadoNuevo.current.checked == true) {
-      objetoClienteNuevo.estado = "i"
-    } else {
-      alert("No se a seleccionando ninguno")
     }
   }
 
@@ -94,22 +85,6 @@ export default function CreatePreregistro() {
                           Email
                         </label>
                         <input type="email" ref={emailNuevo} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                      </div>
-
-                      <div className="col-span-6 sm:col-span-3 lg:col-span-1">
-                        <label htmlFor="estado" className="block text-sm font-medium text-gray-700">
-                          Estado
-                        </label>
-                        <fieldset className="flex mt-2.5 gap-3">
-                          <div className="flex items-center">
-                            <input type="radio" id="activo" value="a" name="estado" ref={estadoNuevo} className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
-                            <label for="activo" className="ml-3 block text-sm font-medium text-gray-700">Activo</label>
-                          </div>
-                          <div className="flex items-center">
-                            <input type="radio" id="inactivo" value="i" name="estado" ref={estadoNuevo} className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
-                            <label for="inactivo" className="ml-3 block text-sm font-medium text-gray-700">Inactivo</label>
-                          </div>
-                        </fieldset>
                       </div>
                     </div>
                   </div>
