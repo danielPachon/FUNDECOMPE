@@ -41,7 +41,7 @@ export function UserLogin() {
 
   const handleVerifyCedula = () => {
     // Hacer la solicitud a la API para verificar la cédula
-    fetch(`https://axion-dev.onrender.com/api/preusers/cedula/${cedula}`)
+    fetch(`http://localhost:9000/api/preusers/cedula/${cedula}`)
       .then((response) => {
         if (response.status === 200) {
           response.json().then((data) => {
@@ -68,7 +68,7 @@ export function UserLogin() {
 
   const handleLogin = () => {
     // Hacer la solicitud de inicio de sesión
-    fetch("https://axion-dev.onrender.com/api/login", {
+    fetch("http://localhost:9000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
