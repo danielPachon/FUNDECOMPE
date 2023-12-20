@@ -28,8 +28,8 @@ const userSchema = new mongoose.Schema({
   nivelSalario: { type: mongoose.Schema.Types.ObjectId, ref: "SalaryLevel" },
   preregistro: { type: mongoose.Schema.Types.ObjectId, ref: "PreUser" },
   urlImage: {
-    type: String
-  }
+    type: String,
+  },
 });
 
 userSchema.pre("save", async function (next) {

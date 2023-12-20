@@ -1,4 +1,6 @@
 const Mentor = require("../models/mentors");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 // Controlador para obtener todos los mentores
 const getAllMentors = async (req, res) => {
@@ -14,6 +16,7 @@ const getAllMentors = async (req, res) => {
 // Controlador para crear un nuevo mentor
 const createMentor = async (req, res) => {
   const mentorData = req.body; // Los datos del mentor se envían en el cuerpo de la solicitud
+  mentorData.password = bcrypt.hashSync(mentorData.password, 10);
 
   try {
     const newMentor = await Mentor.create(mentorData);
@@ -87,8 +90,9 @@ const loginMentor = async (req, res) => {
       return res.status(401).json({ error: "Credenciales inválidas" });
     }
 
-    const token = jwt.sign({ mentorId: mentor._id }, "secretKey"); // Cambia 'secretKey' por una clave secreta segura
+    const token = jwt.sign({ mentorId: mentor._id }, "secretKey", { expiresIn: '1h' }); // Cambia 'secretKey' por una clave secreta segura
     res.json({ token });
+    console.log("Token:", token);
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
     res.status(500).json({ error: "Error al iniciar sesión" });

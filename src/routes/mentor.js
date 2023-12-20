@@ -9,7 +9,7 @@ router.get("/mentors", mentorController.getAllMentors);
 router.post("/mentors", mentorController.createMentor);
 
 // Ruta para obtener un mentor por su ID
-router.get("/mentors/:id", mentorController.getMentorById);
+router.get("/mentor/:id", mentorController.getMentorById);
 
 // Ruta para actualizar un mentor por su ID
 router.put("/mentors/:id", mentorController.updateMentor);
