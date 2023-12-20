@@ -159,7 +159,7 @@ export function UserLogin() {
                   <button onClick={handleLogin} className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-green-600 focus:ring-4 focus:ring-green-100 bg-green-500">Iniciar sesión</button>
                 </div>
               ) : null}
-              <p className="text-sm leading-relaxed text-gray-900"> <a href="/" className="font-bold text-gray-700">Administración u Organización</a></p>
+              <p className="text-sm leading-relaxed text-gray-900"> <a href="/AdminLogin" className="font-bold text-gray-700">Administración u Organización</a></p>
             </div>
           </div>
         </div>
