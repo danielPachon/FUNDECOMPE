@@ -15,7 +15,7 @@ export default function Mentors() {
   const texto = useRef()
 
   const traerBarrios = () => {
-    axios.get(`http://localhost:9000/api/mentors`).then((response) => {
+    axios.get(`https://axion-dev.onrender.com/api/mentors`).then((response) => {
       setBarrios(response.data)
     })
   }

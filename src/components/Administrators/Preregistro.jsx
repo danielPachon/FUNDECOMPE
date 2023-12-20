@@ -15,7 +15,7 @@ export default function Preregistro() {
   const texto = useRef()
 
   const traerBarrios = () => {
-    axios.get(`http://localhost:9000/api/preusers`).then((response) => {
+    axios.get(`https://axion-dev.onrender.com/api/preusers`).then((response) => {
       setBarrios(response.data)
     })
   }

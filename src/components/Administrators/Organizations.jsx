@@ -15,7 +15,7 @@ export default function Organizations() {
   const texto = useRef()
 
   const traerBarrios = () => {
-    axios.get(`http://localhost:9000/api/users`).then((response) => {
+    axios.get(`https://axion-dev.onrender.com/api/users`).then((response) => {
       setBarrios(response.data)
     })
   }
